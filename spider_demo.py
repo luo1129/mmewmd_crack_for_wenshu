@@ -83,6 +83,7 @@ class SpiderManager(object):
         self.conditions = conditions
 
     def init(self):
+        print(1)
         self.f80t = ""
         self.f80t_n = ""
         self.meta = ""
