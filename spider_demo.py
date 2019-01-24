@@ -17,7 +17,9 @@
 """
 import requests
 import time
+import datetime
 import execjs
+import json
 from lxml import etree
 import random
 from urllib import parse
@@ -69,7 +71,7 @@ class SpiderManager(object):
             "wzwsvtime": ""
         }
         self.data = {
-            "Param": "案件类型:民事案件",
+            "Param": "法院名称:北京市石景山区人民法院,裁判日期:2017-01-03",
             "Index": "",
             "Page": "20",
             "Order": "法院层级",
@@ -83,7 +85,6 @@ class SpiderManager(object):
         self.conditions = conditions
 
     def init(self):
-        print(1)
         self.f80t = ""
         self.f80t_n = ""
         self.meta = ""
@@ -203,10 +204,23 @@ class SpiderManager(object):
     def getData(self):
         return self.content
 
+    def readCourtFile(self):
+        fo = open("courts.txt", "r")
+        self.courtlist = fo.read().splitlines()
+        print(self.courtlist)
+
+    def string_toDatetime(self, st):
+        now = datetime.datetime.strptime(st, "%Y-%m-%d")
+        now = now + datetime.timedelta(days=1)
+        return now.strftime('%Y-%m-%d')
+
 if __name__ == '__main__':
-    for i in range(10):
+    for i in range(1, 100):
         # 实例化并开启调试模式，会返回报错信息
+
         spider = SpiderManager(debug=True)
+        spider.readCourtFile();
+        spider.string_toDatetime("2017-01-01")
         # 设置采集条件
         spider.setconditions("searchWord+2+AJLX++案件类型:民事案件")
         # 初始化
@@ -215,9 +229,17 @@ if __name__ == '__main__':
         status = spider.getvjkl5()
         if status:
             print("获取vjkl5成功")
-            status = spider.getContent(page=i+1)
+            status = spider.getContent(page=i)
             if status:
                 print(spider.getData())
+                result = json.loads(spider.getData())
+                result = json.loads(result)
+                count = int(result[0]['Count'])
+                for j in range(1, len(result)):
+                    print(j)
+                    print(result[j]["案号"])
+                if count<i*20:
+                    break
             else:
                 print("获取列表页内容失败")
         else:
