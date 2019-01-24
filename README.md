@@ -38,6 +38,11 @@
 
 ## 更新tip
 
+### 2019.1.21
+修复了大量可能会出现remind key和202的问题。
+
+合并了来自@jjk13593527343开发者制作的go语言调用sdk，go开发者请前往gland_mmewmd文件夹调用
+
 ### 2019.1.20
 在连续5天的奋战下，我们sdk最终版终于完成！本项目以jssdk为核心，本次发布python调用实例，敬请参考。
 将在未来1-2天内发布java，go，c#的实例版本，欢迎大家star和加入我们这个有爱的数据矿工(下🈶群号)群体。
@@ -57,10 +62,14 @@ python版：guid请自行找算法生成，否则会remind key！！
 请clone代码后，清空浏览器缓存打开文书网，把当前的cookies中的FSSBBIl1UgzbN7N80T参数值填写到python代码对应位置直接运行生成的就是MmEwMd参数。
 关于MmEwMd：已经通过比对，确认生成的长度和规则是一致的。
 
-### 鼓励
-如果我的项目帮助到了你，可否通过打赏鼓励一下作者
- ![image](https://github.com/sml2h3/mmewmd_crack_for_wenshu/blob/master/1548066223468.jpg =366x570)
- ![image](https://github.com/sml2h3/mmewmd_crack_for_wenshu/blob/master/mm_facetoface_collect_qrcode_1548066239153.png =366x570)
-
 ## 快乐的爬虫群
 **QQ119794042**
+
+
+
+### 鼓励
+如果我的项目帮助到了你，可否通过打赏鼓励一下作者
+
+
+<img src="https://github.com/sml2h3/mmewmd_crack_for_wenshu/blob/master/1548066223468.jpg" width="366" hegiht="570" style="display: inline-block"/>
+<img src="https://github.com/sml2h3/mmewmd_crack_for_wenshu/blob/master/mm_facetoface_collect_qrcode_1548066239153.png" width="366" hegiht="570" style="display: inline-block"/>
